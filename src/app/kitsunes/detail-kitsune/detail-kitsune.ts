@@ -41,7 +41,7 @@ export class DetailKitsune {
     const k = this.kitsune();
     if (!k || this.boostDesactive()) return;
 
-    const reussite = Math.random() < 0.25; // 25% de chance
+    const reussite = Math.random() < 0.25;
     if (reussite) {
       this.kitsuneService.activerBoost(k.nom);
       this.messageBoost.set('Boost activé avec succès !');
