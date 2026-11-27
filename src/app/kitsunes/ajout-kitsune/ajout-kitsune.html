@@ -1,0 +1,83 @@
+<div class="max-w-xl mx-auto p-6">
+  <fieldset class="bg-white rounded-xl p-6 shadow-md border border-slate-200">
+    <legend class="text-3xl font-bold text-slate-800 px-2">
+      Ajouter un Kitsune
+    </legend>
+
+    <form [formRoot]="form" class="mt-4 flex flex-col gap-5">
+      <div class="flex flex-col gap-1.5">
+        <label for="nom" class="text-sm font-semibold text-slate-700">
+          Nom
+        </label>
+        <input
+          id="nom"
+          type="text"
+          [formField]="form.nom"
+          class="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500"
+        />
+        @if (erreurNom()) {
+          <p class="text-sm font-medium text-red-600">{{ erreurNom() }}</p>
+        }
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="description" class="text-sm font-semibold text-slate-700">
+          Description
+        </label>
+        <textarea
+          id="description"
+          rows="3"
+          [formField]="form.description"
+          class="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500"
+        ></textarea>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <div class="flex flex-col gap-1.5 flex-1">
+          <label for="pv" class="text-sm font-semibold text-slate-700">
+            PV
+          </label>
+          <input
+            id="pv"
+            type="number"
+            [formField]="form.pv"
+            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1.5 flex-1">
+          <label for="force" class="text-sm font-semibold text-slate-700">
+            Force
+          </label>
+          <input
+            id="force"
+            type="number"
+            [formField]="form.force"
+            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500"
+          />
+        </div>
+
+        <div class="flex flex-col gap-1.5 flex-1">
+          <label for="vitesse" class="text-sm font-semibold text-slate-700">
+            Vitesse
+          </label>
+          <input
+            id="vitesse"
+            type="number"
+            [formField]="form.vitesse"
+            class="w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500"
+          />
+        </div>
+      </div>
+
+      <div class="pt-2 flex justify-end">
+        <button
+          type="submit"
+          class="rounded-lg bg-slate-800 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition cursor-pointer"
+        >
+          Créer
+        </button>
+      </div>
+    </form>
+  </fieldset>
+</div>

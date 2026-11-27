@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+:root{
+  --active-link-outline-color: white
+}
+
+@layer base {
+  h1 {
+    @apply text-3xl font-bold text-slate-800 mb-6;
+  }
+}
