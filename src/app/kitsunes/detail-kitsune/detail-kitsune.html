@@ -1,12 +1,12 @@
 @if (kitsune(); as k) {
   <div class="max-w-[90vw] mx-auto p-6">
-    <article class="bg-white rounded-xl p-6 shadow-md border border-slate-200 flex flex-col gap-6">
+    <div class="bg-white rounded-xl p-6 shadow-md border border-slate-200 flex flex-col gap-6">
       <img
         [src]="k.image ?? 'assets/Jubi.png'"
         [alt]="k.nom"
         class="w-48 h-48 object-contain rounded-lg bg-slate-50 border border-slate-200 p-2 shrink-0"
       />
-      <header class="flex flex-col gap-2">
+      <div class="flex flex-col gap-2">
         <div class="flex items-center justify-between gap-4">
           <h1 class="text-3xl font-bold text-slate-800">{{ k.nom }}</h1>
           @if (k.boost) {
@@ -16,7 +16,7 @@
           }
         </div>
         <p class="text-slate-600">{{ k.description }}</p>
-      </header>
+      </div>
 
       <ul class="flex flex-wrap gap-3 list-none p-0 m-0">
         <li class="flex-1 min-w-35 bg-slate-50 border border-slate-200 rounded-lg p-3 flex flex-col">
@@ -68,6 +68,6 @@
           {{ messageBoost() }}
         </p>
       }
-    </article>
+    </div>
   </div>
 }

@@ -3,7 +3,7 @@ import { ListeKitsune } from './kitsunes/liste-kitsune/liste-kitsune';
 import { AjoutKitsune } from './kitsunes/ajout-kitsune/ajout-kitsune';
 import { DetailKitsune } from './kitsunes/detail-kitsune/detail-kitsune';
 import { Bataille } from './kitsunes/bataille/bataille';
-import { KitsuneIntrouvable } from './kitsunes/kitsune-introuvable/kitsune-introuvable';
+import { KitsuneIntrouvable } from './shared/kitsune-introuvable/kitsune-introuvable';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'kitsunes', pathMatch: 'full' },
