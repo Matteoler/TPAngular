@@ -1,0 +1,7 @@
+.active{
+  text-decoration: underline;
+}
+
+ul li a:focus{
+  outline: 2px solid var(--active-link-outline-color);
+}

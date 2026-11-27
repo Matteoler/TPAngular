@@ -1,0 +1,59 @@
+<div class="max-w-[90vw] mx-auto p-6">
+  <h1 class="text-3xl font-bold text-slate-800 mb-2">Arène de Bataille</h1>
+  <p class="text-slate-600 mb-6">
+    Sélectionnez 2 Kitsunes disponibles pour lancer un combat.
+  </p>
+
+  <section class="flex flex-wrap gap-4 mb-8">
+    @for (k of kitsunesDisponibles(); track k.nom) {
+      <button
+        type="button"
+        class="flex flex-col items-start gap-2 w-full sm:w-64 p-5 rounded-xl bg-white border-2 text-left shadow-sm transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+        [class.border-slate-800]="estSelectionne(k.nom)"
+        [class.bg-slate-50]="estSelectionne(k.nom)"
+        [class.shadow-md]="estSelectionne(k.nom)"
+        [class.border-slate-200]="!estSelectionne(k.nom)"
+        [class.hover:border-slate-400]="!estSelectionne(k.nom)"
+        [disabled]="combatEnCours()"
+        (click)="toggleSelection(k.nom)"
+      >
+        <img
+          [src]="k.image ?? 'assets/Jubi.png'"
+          alt="{{ k.nom }}"
+          class="w-full h-40 object-contain mb-4"
+        />
+        <p class="text-lg font-bold text-slate-900">{{ k.nom }}</p>
+        <span class="text-sm text-slate-600">
+          PV: {{ k.pv }} | Force: {{ k.force }} | Vitesse: {{ k.vitesse }}
+        </span>
+      </button>
+    } @empty {
+      <p class="text-slate-500">Aucun Kitsune n'est disponible pour combattre.</p>
+    }
+  </section>
+
+  <div class="flex flex-col items-start gap-4 pt-6 border-t border-slate-200">
+    @if (selection().length === 2) {
+      <button
+        type="button"
+        (click)="lancerCombat()"
+        [disabled]="combatEnCours()"
+        class="rounded-lg bg-slate-800 px-6 py-2.5 text-sm font-semibold text-white hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        Combat !
+      </button>
+    }
+
+    @if (combatEnCours()) {
+      <p class="text-sm font-medium text-slate-600 animate-pulse">
+        Le combat est en cours...
+      </p>
+    }
+
+    @if (resultat()) {
+      <p class="p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-900 font-semibold">
+        {{ resultat() }}
+      </p>
+    }
+  </div>
+</div>

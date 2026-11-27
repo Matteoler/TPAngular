@@ -1,0 +1,18 @@
+<header class="sticky top-0 z-50">
+  <nav class="flex justify-between items-center bg-blue-950 h-14 text-white px-4">
+    <span class="text-xl font-bold">Kitsunes Battle</span>
+    <ul class="flex w-xs justify-between">
+      <li>
+        <a routerLink="/kitsunes" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          Liste Kitsune
+        </a>
+      </li>
+      <li>
+        <a routerLink="/bataille" routerLinkActive="active">Bataille</a>
+      </li>
+      <li>
+        <a routerLink="/kitsunes/ajouter" routerLinkActive="active">Ajout d'un Kitsune</a>
+      </li>
+    </ul>
+  </nav>
+</header>

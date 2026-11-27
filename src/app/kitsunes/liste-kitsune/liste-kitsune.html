@@ -1,0 +1,32 @@
+<div class="max-w-[90vw] mx-auto p-6">
+  <h1>Liste des Kitsunes</h1>
+
+  <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    @for (kitsune of kitsunes(); track kitsune.nom) {
+      <a
+        class="flex flex-col justify-between rounded-xl p-5 shadow-md border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition"
+        [routerLink]="['/kitsunes', kitsune.nom]"
+      >
+        @if (kitsune.boost) {
+          <img
+            [src]="kitsune.image ?? 'assets/Jubi.png'"
+            alt="{{ kitsune.nom }}"
+            class="w-full h-40 object-contain mb-4"
+          />
+        }
+
+        <div>
+          <h2 class="text-xl font-bold text-slate-900 mb-2">{{ kitsune.nom }}</h2>
+          <p class="text-sm text-slate-600">
+            État :
+            <span class="text-xs font-semibold">
+              {{ kitsune.enRepos ? 'En repos' : 'Disponible' }}
+            </span>
+          </p>
+        </div>
+      </a>
+    } @empty {
+      <p class="text-slate-500">Aucun Kitsune disponible.</p>
+    }
+  </section>
+</div>
